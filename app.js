@@ -8,6 +8,8 @@ const methodOverride = require("method-override");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
+const mongoStore = require("connect-mongo")(session);
+const config = require("./config/config");
 
 //  Inicializacion de la App
 const app = express();
@@ -35,8 +37,13 @@ app.use(methodOverride("_method"));
 app.use(
   session({
     secret: "secreto",
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    store: new mongoStore({
+      url: config.urlDB,
+      autoReconnect: true
+    }),
+    cookie: {maxAge: 7200000}
   })
 );
 app.use(passport.initialize());
