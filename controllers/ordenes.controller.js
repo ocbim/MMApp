@@ -27,7 +27,6 @@ ordenesCtrl.createNewOrdenes = async (req, res) => {
   });
   newOrdenes.user_id = req.user.id;
   await newOrdenes.save();
-  console.log(req.user._id);
 
   req.flash("success_msg", "Orden Agragada con Exito");
   res.redirect("/ordenes");
@@ -37,8 +36,10 @@ ordenesCtrl.createNewOrdenes = async (req, res) => {
 ordenesCtrl.renderOrdenes = async (req, res) => {
   const ordenes = await Ordenes.find({ user_id: req.user.id }).sort({
     createdAt: "desc"
-  });
+  }).lean();
+
   if (ordenes.length > 0) {
+    console.log(ordenes);
     res.render("ordenes/all-ordenes", { ordenes });
   } else {
     res.redirect("/ordenes/add");
@@ -47,7 +48,9 @@ ordenesCtrl.renderOrdenes = async (req, res) => {
 
 //  Renderisar Editado de ordenes
 ordenesCtrl.renderEditForm = async (req, res) => {
-  const ordenes = await Ordenes.findById(req.params.id);
+  const ordenes = await Ordenes.findById(req.params.id).lean();
+  console.log(ordenes);
+  
   if (ordenes.user_id != req.user.id) {
     req.flash("error_msg", "No Autorizado");
     return res.redirect("/ordenes");

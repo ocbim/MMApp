@@ -1,44 +1,44 @@
 <div class="row">
     <div class="col-md-7 mx-auto">
         {{#each ordenes}}
-        <div class="mt-3 shadow ">
-            <div class="card border-right-0 border-top-0 border-bottom-0 border-primary border-5">
-                <div class="card-body">
+            <div class="mt-3 shadow ">
+                <div class="card border-right-0 border-top-0 border-bottom-0 border-primary border-5">
+                    <div class="card-body">
 
-                    <p class="float-right h4">
-                        <a href="/ordenes/edit/{{_id}}"><i class="fa fa-edit"></i></a>
-                    </p>
+                        <p class="float-right h4">
+                            <a href="/ordenes/edit/{{_id}}"><i class="fa fa-edit"></i></a>
+                        </p>
 
-                    <p class="h4">
-                        <span class="badge badge-info badge-pill">
-                        Puntos {{point}}
-                        </span>
-                    </p>
+                        <p class="h4">
+                            <span class="badge badge-info badge-pill">
+                            Puntos {{point}}
+                            </span>
+                        </p>
 
-                    <p class="text-right h2 text-info">
-                        {{codOrden}} 
-                        
-                    </p>
+                        <p class="text-right h2 text-info">
+                            {{codOrden}} 
+                            
+                        </p>
 
-                    <p class="text-right h6 text-secondary">
-                        {{typeInstalation}}
-                    </p>
+                        <p class="text-right h6 text-secondary">
+                            {{typeInstalation}}
+                        </p>
 
-                    <p class="text-muted text-justify">
-                        {{description}}
-                    </p>
+                        <p class="text-muted text-justify">
+                            {{description}}
+                        </p>
 
-                    <p class="text-muted">
-                        {{getDate}}
-                    </p>
+                        <p class="text-muted">
+                            {{getDate}}
+                        </p>
 
-                    <form action="/ordenes/delete/{{_id}}?_method=DELETE" method="POST">
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
-                    </form>
+                        <form action="/ordenes/delete/{{this._id}}?_method=DELETE" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    {{/each}}
+        {{/each}}
     </div>
 </div>

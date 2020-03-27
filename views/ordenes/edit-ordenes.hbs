@@ -33,8 +33,8 @@
 
                 <!--Meter the Instalation -->
                 <div class="form-group">
-                    <select value={{ordenes.meter}} name="meter" class="form-control">
-                        <option selected  hidden value={{ordenes.meter}}>{{ordenes.meter}} Mtr</option>
+                    <select name="meter" class="form-control">
+                        <option selected  hidden value="{{ordenes.meter}}">{{ordenes.meter}} Mtr</option>
                         <option value="0">0 Mts</option>
                         <option value="20">20 Mts</option>
                         <option value="30">30 Mts</option>
@@ -51,7 +51,7 @@
 
                 <!-- DATE the instalation -->
                 <div class="form-group">
-                    <input type="date" name="dateInstalation" class="form-control" value={{ordenes.getDate}} >
+                    <input type="date" name="dateInstalation" class="form-control" value="{{ordenes.dateInstalation}}" >
                 </div>
 
                 <!-- Description Orden-->
@@ -61,7 +61,7 @@
 
                 <!-- Puntos -->
                 <div class="form-group">
-                    <input type="number" name="point" class="form-control" readonly value={{ordenes.point}}>
+                    <input type="number" name="point" class="form-control" readonly value="{{ordenes.point}}">
                 </div>
 
                 <div class="form-group">
