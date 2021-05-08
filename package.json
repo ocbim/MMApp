@@ -26,7 +26,7 @@
   "description": "App para contabilizar los puntos de los tecnicos",
   "main": "app.js",
   "devDependencies": {
-    "handlebars": "^4.7.3",
+    "handlebars": "^4.7.7",
     "nodemon": "^2.0.2"
   },
   "author": "Oscar Calvo Batista <ocbim4@gmail.com>",
